@@ -1,15 +1,12 @@
 var startCountDown = document.querySelector('#startQuiz');
 var secCountDown = document.querySelector('#seconds');
 
-
-var totalSeconds = 1000;
-var secondsElapsed = 0;
+var timeLeft = 5;
 var interval;
 var running = false;
 
 function displayTime(seconds) {
-    secCountDown.textContent = Math.floor(seconds / 60);
-    var s = seconds % 5;
+    var s = seconds;
     if (s < 10) {
         s = "0" + s
     }
@@ -20,24 +17,17 @@ function startTimer() {
     if (running) {
         return;
     }
-    totalSeconds = parseInt(parseInt(secCountDown.innerText, 10), 10) * 60;
-    // console.log(totalSeconds);
-
     running = true;
 
-
-
     interval = setInterval(function () {
-        secondsElapsed++
-        console.log(secondsElapsed);
-        displayTime(totalSeconds - secondsElapsed)
+        timeLeft--
+        displayTime(timeLeft);
+        if (timeLeft <= 0) {
+            secCountDown.textContent = "";
+            clearInterval(interval)
+            alert("Your time is up!")
+        };
     }, 1000);
-};
-
-if (seconds === 00) {
-    secCoundDown.textContent = "";
-    clearInterval(interval)
-    alert("Your time is up!")
 };
 
 startCountDown.addEventListener('click', startTimer);
