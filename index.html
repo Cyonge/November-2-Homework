@@ -6,10 +6,12 @@
     <title>Movie Quiz Game</title>
     <link rel="stylesheet" href="./style.css">
     
+
 </head>
 
 <body>
-    <div class="container">
+
+    <div id="startScreen" class="container">
         <h1>
             Movie Quiz
         </h1>
@@ -18,9 +20,6 @@
         </p>
 
 
-        <div id="seconds">
-            75
-        </div>
 
 
         <button id="startQuiz">
@@ -28,18 +27,23 @@
         </button>
 
     </div>
-    <div id="question1">
-        What movie did Francis Ford Coppola direct?
-        <ul>
-            <button class='answer1'>Rosemary's Baby</button><br>
-            <button class='answer2'>The Omen</button><br>
-            <button class='answer3'>The Godfather</button><br>
-            <button class='answer4'>Goodfellas</button>
-        </ul>
+    <div id="questionsAll" class="container hide">
+        <div id="title"></div>
+        <div id="choices">
+            
+        </div>
+            
+        <div id="feedback"></div>
+
+        <div id="seconds">
+            75
+        </div>
     </div>
-  
-    <div id="scoreScreen">
-        What movie did Francis Ford Coppola direct?
+
+
+
+
+    <div id="scoreScreen" class="container hide">
         <h1>
             THE QUIZ IS DONE!
         </h1>
